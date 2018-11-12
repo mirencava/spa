@@ -29,4 +29,5 @@ fdescribe('Test HeroeComponent', () => {
   fit('testing helloworld function', () => {
     expect(component.helloWord()).toEqual('hello world!');
   });
+
 });
