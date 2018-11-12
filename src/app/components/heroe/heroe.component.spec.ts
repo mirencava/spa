@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroeComponent } from './heroe.component';
 import { Heroe } from '../../servicios/heroes.service';
 
-describe('Test HeroeComponent', () => {
+fdescribe('Test HeroeComponent', () => {
   let component: HeroeComponent;
   let fixture: ComponentFixture<HeroeComponent>;
 
