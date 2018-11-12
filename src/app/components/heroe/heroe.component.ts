@@ -21,11 +21,9 @@ export class HeroeComponent  {
   }
 
   helloWord(): string {
-    console.log('hello world!');
     return 'hello world!';
   }
 
-  
 
 
 }
