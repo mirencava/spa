@@ -1,8 +1,13 @@
 import {Injectable} from '@angular/core';
+import { Http , Headers} from '@angular/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+
 
 
 @Injectable()
 export class HeroesService {
+  private gescolUrl = 'https://ares.attestmadrid:9443/Collective/api/v1/Colectivo';
   private heroes: Heroe [] = [
     {
       nombre: 'Aquaman',
@@ -55,7 +60,7 @@ export class HeroesService {
     }
   ];
 
-constructor() {
+constructor(private _http: HttpClient) {
   console.log('servicio para usarse');
 }
 
@@ -67,10 +72,13 @@ getHeroes(): Heroe[] {
 
 getHeroe(idx: string): Heroe {
   // TODO validaciones idx
+  console.log('servicio heroe getHeroe');
   return this.heroes[idx];
 }
 
 buscarHeroes( termino: string ): Heroe[] {
+  
+  console.log('servicio heroe buscarHeroes ');
   let heroesArr: Heroe[] = [];
   termino = termino.toLowerCase();
   for ( let i=0; i< this.heroes.length; i ++) {
@@ -89,6 +97,31 @@ buscarHeroes( termino: string ): Heroe[] {
 
 
 }
+
+
+getGesCol () {
+  console.log('servicio heroe getGesCol ');
+  /*const headers = new HttpHeaders({
+    'gescol-api-key' : 'qDQ48LTRT1RH0ExdqS88K57YV0z/WdCFYWdXSS7suxU=',
+
+  });*/
+  // console.log(headers);
+  /*
+  const httpOptions: Headers = {
+    headers: new HttpHeaders({
+      'gescol-api-key' : 'qDQ48LTRT1RH0ExdqS88K57YV0z/WdCFYWdXSS7suxU=',
+    })
+  };*/
+let headers = new HttpHeaders();
+headers = headers.set('gescol-api-key','qDQ48LTRT1RH0ExdqS88K57YV0z/WdCFYWdXSS7suxU=')
+
+
+  const url = this.gescolUrl;
+  return this._http.get(url, {headers} );
+}
+
+
+
 }
 
 export interface Heroe {

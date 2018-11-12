@@ -21,6 +21,7 @@ import { HeroeComponent } from './components/heroe/heroe.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     APP_ROUTING,
 
   ],

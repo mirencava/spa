@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroeComponent } from './heroe.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeroesService } from '../../servicios/heroes.service';
+import { Http, HttpModule } from '@angular/http';
 
 
 
@@ -15,7 +16,7 @@ fdescribe('Test HeroeComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ HeroeComponent ],
-      providers: [HeroesService]
+      providers: [HeroesService,Http]
     })
     .compileComponents();
   }));
