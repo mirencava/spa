@@ -8,7 +8,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "inicio": "ng serve --proxy-config proxy.config.json -o"
+        "inicio": "ng serve --proxy-config proxy.config.json -o",
+        "prueba": "ng test --watch=false"
     },
     "private": true,
     "dependencies": {
@@ -24,6 +25,7 @@
         "bootstrap": "^4.1.3",
         "core-js": "^2.5.4",
         "jquery": "^3.3.1",
+        "karma-phantomjs-launcher": "^1.0.4",
         "popper.js": "^1.14.4",
         "rxjs": "~6.2.0",
         "zone.js": "~0.8.26"
