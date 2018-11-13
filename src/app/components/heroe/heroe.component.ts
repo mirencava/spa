@@ -44,6 +44,7 @@ export class HeroeComponent  {
     this._heroesService.getGesCol()
     .subscribe( (data: any) => {
       this.colegiado  = data;
+      console.log(data);
     }, (errorServicio) => {
       console.log(errorServicio);
       this.error = true;

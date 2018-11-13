@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroeComponent } from './heroe.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeroesService } from '../../servicios/heroes.service';
-import { Http, HttpModule } from '@angular/http';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 
 
@@ -16,7 +16,7 @@ fdescribe('Test HeroeComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [ HeroeComponent ],
-      providers: [HeroesService,Http]
+      providers: [HeroesService, HttpClient, HttpHandler]
     })
     .compileComponents();
   }));
@@ -27,8 +27,15 @@ fdescribe('Test HeroeComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('testing helloworld function', () => {
+  it('testing helloworld function', () => {
     expect(component.helloWord()).toEqual('hello world!');
   });
+
+  it('testing getcolegiados function',() => {
+    expect(component.getColegiados).length>0;
+
+  } );
+
+  
 
 });
