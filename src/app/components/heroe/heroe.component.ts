@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { HeroesService } from '../../servicios/heroes.service';
+import { SGAService } from '../../servicios/sga.services';
 
 @Component({
   selector: 'app-heroe',
@@ -14,12 +15,13 @@ export class HeroeComponent  {
   colegiado: any = {};
   error: boolean;
   mesanjeError: string;
+  empleado: any = {};
 
 
   constructor( private _activatedRoute: ActivatedRoute,
-                private _heroesService: HeroesService)  {
+                private _heroesService: HeroesService, private _sgaService : SGAService)  {
     this.getHeroe();
-    this.getColegiados();
+    this.getEmpleados();
   }
 
   getHeroe() {
@@ -56,5 +58,24 @@ export class HeroeComponent  {
   }
 
 
+  getEmpleados (){
+
+    console.log('componente heroe getColegiados ');
+
+    this._sgaService.getUsuarios()
+    .subscribe( (data: any) => {
+      this.empleado  = data;
+      console.log(data);
+    }, (errorServicio) => {
+      console.log(errorServicio);
+      this.error = true;
+      this.mesanjeError = errorServicio.error.error.message;
+
+    } );
+
+    console.log(this.empleado);
+
+  
+  }
 
 }

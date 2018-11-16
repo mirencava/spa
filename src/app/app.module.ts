@@ -22,6 +22,12 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SGAService } from './servicios/sga.services';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { WinAuthInterceptor } from './winAuthInterceptor';
+
+
 
 
 @NgModule({
@@ -41,10 +47,17 @@ import { HttpClientModule } from '@angular/common/http';
     HttpModule,
     HttpClientModule,
     APP_ROUTING,
+    
 
   ],
   providers: [
-    HeroesService
+    HeroesService,
+    SGAService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: WinAuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
 })
